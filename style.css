@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Bacasime+Antique&display=swap');
+
+* {
+    font-family: 'Bacasime Antique', serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 350;
+}
+
+body {
+    height: 100vh;
+    background-image: url(./images/meisou2.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.container {
+    /* border: 3px solid black; */
+    width: 300px;
+    height: 300px;
+    /* 余白に対して中央に寄せる */
+    margin: auto;
+    display: flex;
+    /* 縦に対して中央 */
+    justify-content: center;
+    /* 横に対して中央 */
+    align-items: center;
+    position: relative;
+    /* 大きさ */
+    transform: scale(1);
+}
+
+h1 {
+    /* 縦軸を150px下げる */
+    transform: translateY(150px);
+}
+
+#text {
+    font-size: 1.3rem;
+}
+
+.circle {
+    /* .containerに合わせたサイズ */
+    width: 100%;
+    height: 100%;
+    background-color: rgb(10, 0, 10);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.outer-circle {
+    height: 320px;
+    width: 320px;
+    background: conic-gradient(
+            /* 右.下.左の順 */
+            purple 0%,
+            rgb(104, 3, 104) 40%,
+            white 40%,
+            white 60%,
+            rgb(221, 112, 221) 60%,
+            rgb(250, 73, 250) 100%);
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    border-radius: 50%;
+    z-index: -2;
+}
+
+.container-pointer {
+    width: 20px;
+    height: 190px;
+    /* background-color: red; */
+    position: absolute;
+    top: -40px;
+    left: 140px;
+    /* 起点の位置を決める */
+    transform-origin: bottom;
+    /* 7.5秒  linear 等速  infinite 無限 */
+    animation: rotate 7500ms linear infinite;
+}
+
+.pointer {
+    width: 20px;
+    height: 20px;
+    background-color: blue;
+    border-radius: 50%;
+}
+
+.container.grow {
+    /* 膨らませる */
+    animation: grow 3s linear forwards;
+}
+
+.container.shrink {
+    /* 縮ませる */
+    animation: shrink 3s linear forwards;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes grow {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.2);
+    }
+
+}
+
+@keyframes shrink {
+    0% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
